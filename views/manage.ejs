@@ -1,0 +1,26 @@
+
+<%- include("partials/header"); -%>
+    <h1>Manage</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% posts.forEach(post => { %>
+                <tr>
+                    <td><h1 class="title"><%= post.title %></h1></td>
+                    <td>
+                        <form action="/delete/<%= post._id %>" method="POST" style="display:inline;">
+                            <button type="submit" class="del">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <a href="/" class="btn btn-primary space">Back to Home</a>
+
+<%- include("partials/footer"); -%>
